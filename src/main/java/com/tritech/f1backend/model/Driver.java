@@ -10,4 +10,13 @@ public class Driver {
     private int id;
     private String driverName;
     private String driverSurname;
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id=" + id +
+                ", driverName='" + driverName + '\'' +
+                ", driverSurname='" + driverSurname + '\'' +
+                '}';
+    }
 }

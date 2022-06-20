@@ -9,4 +9,12 @@ import lombok.Setter;
     public class Standing {
         private int position;
         private String driverName;
+
+    @Override
+    public String toString() {
+        return "Standing{" +
+                "position=" + position +
+                ", driverName='" + driverName + '\'' +
+                '}';
     }
+}

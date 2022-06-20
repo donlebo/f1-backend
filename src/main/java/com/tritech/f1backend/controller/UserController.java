@@ -1,5 +1,6 @@
 package com.tritech.f1backend.controller;
 import com.tritech.f1backend.model.User;
+import com.tritech.f1backend.utils.Mock;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -9,77 +10,47 @@ import java.util.List;
 public class UserController {
 
     @PostMapping("/user")
-    User createUser(@RequestBody User createUser) {
-        List<User> userList = new ArrayList<User>();
-        User Donato = new User(0,
-                "donlebo",
-                "Donato",
-                "Bello",
-                "donato.bello101@gmail.com",
-                "12345",
-                "3343819116",
-                1 );
-        User Mario = new User(1,
-                "marioR",
-                "Mario",
-                "Rossi",
-                "mario.rossi@gmail.com",
-                "67890",
-                "3333333333",
-                0 );
-        User Luca = new User(2,
-                "lucaV",
-                "Luca",
-                "Verdi",
-                "luca.verdi@gmail.com",
-                "13579",
-                "7777777777",
-                1 );
-
-        userList.add(Donato);
-        userList.add(Mario);
-        userList.add(Luca);
-
-        for (User user: userList) {
-            System.out.println(user.toString());
-        }
+    String createUser(@RequestBody User createUser) {
         System.out.println("user create");
-        return (User) userList;
+        return "User created" + createUser.toString();
     }
 
     @PostMapping("/user/{username}/favorites/{driverName}")
     User addFavoriteDriver(@RequestBody User addFavoriteDriver) {
         System.out.println("new favorite driver was added to your list");
-        return addFavoriteDriver;
+        return null;
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/{username}/favorites")
     List<User> getFavoriteDriver() {
         System.out.println("this is your favorite drivers");
-        return getFavoriteDriver();
+        return null;
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/{username}")
-    List<User> getUserByName() {
-        System.out.println("this is user");
-        return getUserByName();
+    User getUserByName(@PathVariable("username") String userName) {
+        return Mock.getUsersByUsername(userName);
     }
 
-    /* @PutMapping("/user/{username}")
+    @PutMapping("/user/{username}")
     User updateUser(@RequestBody User newUser, @PathVariable Long id) {
         System.out.println("this user is changed");
-        return
-    } */
+        return null;
+    }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/login")
     List<User> loginUser() {
         System.out.println("in");
-        return loginUser();
+        return null;
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/logout")
     List<User> logoutUser() {
         System.out.println("out");
-        return logoutUser();
+        return null;
     }
 }
