@@ -21,14 +21,12 @@ public class UserController {
         return null;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/{username}/favorites")
     List<User> getFavoriteDriver() {
         System.out.println("this is your favorite drivers");
         return null;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/{username}")
     User getUserByName(@PathVariable("username") String userName) {
         return Mock.getUsersByUsername(userName);
@@ -40,14 +38,12 @@ public class UserController {
         return null;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/login")
     List<User> loginUser() {
         System.out.println("in");
         return null;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/user/logout")
     List<User> logoutUser() {
         System.out.println("out");

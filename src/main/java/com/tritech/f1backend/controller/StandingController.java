@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 public class StandingController {
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/standing")
     List<Standing> getStanding() {
         System.out.println("this is standing" + Mock.standing());

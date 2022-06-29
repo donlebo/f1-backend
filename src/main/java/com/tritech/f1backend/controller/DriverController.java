@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 public class DriverController {
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/drivers")
     List<Driver> getDrivers() {
         System.out.println("this is driver list");
@@ -19,7 +18,6 @@ public class DriverController {
         return Mock.driver();
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/drivers/{id}")
     Driver getDriversId(@PathVariable("id") int id) {
         System.out.println("this is driver by id");

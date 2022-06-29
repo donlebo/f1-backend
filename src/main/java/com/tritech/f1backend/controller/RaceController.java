@@ -10,17 +10,15 @@ import java.util.List;
 @RestController
 public class RaceController {
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/race")
     List<Race> getRace() {
         System.out.println("this is a race table");
-        return getRace();
+        return null;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping("/race/{raceRound}")
     List<SingleRace> getSingleRace() {
         System.out.println("this is a single race");
-        return getSingleRace();
+        return null;
     }
 }
