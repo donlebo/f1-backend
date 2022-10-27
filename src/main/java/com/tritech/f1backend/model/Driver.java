@@ -10,6 +10,7 @@ public class Driver {
     private int id;
     private String driverName;
     private String driverSurname;
+    private int raceCode;
 
     @Override
     public String toString() {
@@ -17,6 +18,7 @@ public class Driver {
                 "id=" + id +
                 ", driverName='" + driverName + '\'' +
                 ", driverSurname='" + driverSurname + '\'' +
+                ", raceCode='" + raceCode + '\'' +
                 '}';
     }
 }

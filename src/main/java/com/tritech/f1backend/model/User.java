@@ -10,31 +10,23 @@ import lombok.Setter;
     public class User {
     @JsonProperty("id")
     private int id;
-    @JsonProperty("userName")
-    private String userName;
-    @JsonProperty("firstName")
-    private String firstName;
-    @JsonProperty("lastName")
-    private String lastName;
+    @JsonProperty("name")
+    private String name;
     @JsonProperty("email")
     private String email;
+    @JsonProperty("username")
+    private String username;
+    @JsonProperty("password")
     private String password;
-    @JsonProperty("phone")
-    private String phone;
-    @JsonProperty("userStatus")
-    private int userStatus;
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", userStatus=" + userStatus +
                 '}';
     }
 }

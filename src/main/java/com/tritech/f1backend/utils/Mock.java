@@ -1,63 +1,62 @@
 package com.tritech.f1backend.utils;
-import com.tritech.f1backend.model.Driver;
-import com.tritech.f1backend.model.Standing;
-import com.tritech.f1backend.model.User;
+import com.tritech.f1backend.model.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Mock {
     public static List<User> users() {
-        List<User> userList = new ArrayList<User>();
-        User Donato = new User(
-                0,
-                "donlebo",
-                "Donato",
-                "Bello",
-                "donato.bello101@gmail.com",
-                "12345",
-                "3343819116",
-                1);
-        User Mario = new User(
-                1,
-                "marioR",
-                "Mario",
-                "Rossi",
-                "mario.rossi@gmail.com",
-                "67890",
-                "3333333333",
-                0);
-        User Luca = new User(
-                2,
-                "lucaV",
-                "Luca",
-                "Verdi",
-                "luca.verdi@gmail.com",
-                "13579",
-                "7777777777",
-                1);
-
-        userList.add(Donato);
-        userList.add(Mario);
-        userList.add(Luca);
+        //List<User> userList = new ArrayList<User>();
+        //User Donato = new User(
+        //        0,
+        //        "donlebo",
+        //        "Donato",
+        //        "Bello",
+        //        "donato.bello101@gmail.com",
+        //        "12345",
+        //        "3343819116",
+        //        1);
+        //User Mario = new User(
+        //        1,
+        //        "marioR",
+        //        "Mario",
+        //        "Rossi",
+        //        "mario.rossi@gmail.com",
+        //        "67890",
+        //        "3333333333",
+        //        0);
+        //User Luca = new User(
+        //        2,
+        //        "lucaV",
+        //        "Luca",
+        //        "Verdi",
+        //        "luca.verdi@gmail.com",
+        //        "13579",
+        //        "7777777777",
+        //        1);
+        //
+        //userList.add(Donato);
+        //userList.add(Mario);
+        //userList.add(Luca);
 
         /*for (User user : userList) {
             System.out.println(user.toString());
         }*/
 
-        return userList;
-    }
-
-    public static User getUsersByUsername(String userName){
-        List<User> users = Mock.users();
-        for (User user : users) {
-            if (user.getUserName().equals(userName)) {
-                return user;
-            }
-        }
         return null;
     }
 
-    public static List<Driver> driver(){
+    //public static User getUsersByUsername(String userName){
+      //  List<User> users = Mock.users();
+        //for (User user : users) {
+          //  if (user.getUserName().equals(userName)) {
+            //    return user;
+            //}
+        //}
+        //return null;
+    //}
+
+    /* public static List<Driver> driver(){
         List<Driver> driverList = new ArrayList<Driver>();
         Driver Leclerc = new Driver(
                 0,
@@ -213,9 +212,9 @@ public class Mock {
         }
 
         return driverList;
-    }
+    }*/
 
-    public static Driver getDriverById(int id){
+    /*public static Driver getDriverById(int id){
         List<Driver> drivers = Mock.driver();
         for (Driver driver : drivers) {
             if (driver.getId() == id) {
@@ -223,6 +222,48 @@ public class Mock {
             }
         }
         return null;
+    }*/
+
+    /*public static List<Race> races(){
+        List<Race> raceList = new ArrayList<Race>();
+        Race Monza = new Race(
+                0,
+                "Monza Grand Prix"
+        );
+
+        raceList.add(Monza);
+
+        for (Race race : raceList) {
+            System.out.println(race.toString());
+        }
+
+        return raceList;
+    }
+
+    public static Race getRaceById(int id){
+        List<Race> races = Mock.races();
+        for (Race race : races) {
+            if (race.getId() == id) {
+                return race;
+            }
+        }
+        return null;
+    }*/
+
+    public static List<Standing> standings(){
+        List<Standing> standingList = new ArrayList<Standing>();
+        Standing First = new Standing(
+                0,
+                "Leclerc"
+        );
+
+        standingList.add(First);
+
+        for (Standing standing : standingList) {
+            System.out.println(standing.toString());
+        }
+
+        return standingList;
     }
 
     public static List<Standing> standing() {

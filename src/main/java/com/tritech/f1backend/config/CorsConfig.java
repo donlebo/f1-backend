@@ -6,6 +6,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+
 public class CorsConfig {
 
     //Processo in cui un oggetto definisce le sue dipendenze senza crearle.

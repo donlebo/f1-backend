@@ -1,52 +1,50 @@
 package com.tritech.f1backend.controller;
+import com.tritech.f1backend.model.DriverDetails;
+import com.tritech.f1backend.model.RaceDetails;
 import com.tritech.f1backend.model.User;
-import com.tritech.f1backend.utils.Mock;
+import com.tritech.f1backend.utils.F1Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.UUID;
 
 @RestController
 public class UserController {
 
-    @PostMapping("/user")
-    String createUser(@RequestBody User createUser) {
-        System.out.println("user create");
-        return "User created" + createUser.toString();
+    @Autowired
+    private F1Repository f1Repository;
+
+    @PostMapping("/signup")
+    String createUser(@RequestBody User user) {
+        System.out.println("user created" + user.toString());
+        f1Repository.signUpUser(user);
+        return user.toString();
     }
 
-    @PostMapping("/user/{username}/favorites/{driverName}")
-    User addFavoriteDriver(@RequestBody User addFavoriteDriver) {
-        System.out.println("new favorite driver was added to your list");
-        return null;
+    @GetMapping("/user")
+    User getProfileById(@PathVariable("username") String username) {
+        return f1Repository.getUserById(username);
     }
 
-    @GetMapping("/user/{username}/favorites")
-    List<User> getFavoriteDriver() {
-        System.out.println("this is your favorite drivers");
-        return null;
-    }
+    @PostMapping("/login")
+    ResponseEntity<String> validateUser(@RequestBody User user) {
+        System.out.println("user " + user.getUsername() + " wants to log in");
+        if(f1Repository.login(user.getUsername(), user.getPassword())){
 
-    @GetMapping("/user/{username}")
-    User getUserByName(@PathVariable("username") String userName) {
-        return Mock.getUsersByUsername(userName);
-    }
+            String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+            String token = UUID.randomUUID() + ":" + System.currentTimeMillis();
+            return ResponseEntity.ok().body(
+                    "{" +
+                            " \"token\"  :  \"" + token +"\"," +
+                            " \"expireDate\"  :  \"" + timeStamp + "\" " +
+                            "}");
 
-    @PutMapping("/user/{username}")
-    User updateUser(@RequestBody User newUser, @PathVariable Long id) {
-        System.out.println("this user is changed");
-        return null;
-    }
-
-    @GetMapping("/user/login")
-    List<User> loginUser() {
-        System.out.println("in");
-        return null;
-    }
-
-    @GetMapping("/user/logout")
-    List<User> logoutUser() {
-        System.out.println("out");
-        return null;
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bad credentials");
+        }
     }
 }
+

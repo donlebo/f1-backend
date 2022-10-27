@@ -7,6 +7,14 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Race {
-    private int raceRound;
     private String raceName;
+    private int round;
+
+    @Override
+    public String toString() {
+        return "Race{" +
+                "raceName='" + raceName + '\'' +
+                ", round=" + round +
+                '}';
+    }
 }
