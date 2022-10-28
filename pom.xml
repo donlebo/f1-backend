@@ -49,6 +49,7 @@
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc11</artifactId>
             <version>21.6.0.0.1</version>
+            <url>https://download.oracle.com/otn-pub/otn_software/jdbc/217/ojdbc11.jar</url>
         </dependency>
 
         <dependency> <!-- unirest -->
