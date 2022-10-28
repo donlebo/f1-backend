@@ -36,6 +36,12 @@ public class F1Repository {
         return result.get(0) == 1;
     }
 
+    public User getUserById(String username) {
+        String query = "SELECT * FROM F1_USER where username = " + username;
+        jdbcTemplate.execute(query);
+        return null;
+    }
+
     public List<Driver> drivers() {
         String query = "select name, surname, id, racecode from F1_DRIVER order by points desc";
         return
@@ -46,12 +52,6 @@ public class F1Repository {
                     rs.getInt("racecode")
                     )
             );
-    }
-
-    public User getUserById(String username) {
-        String query = "SELECT * FROM F1_USER where username = " + username;
-        jdbcTemplate.execute(query);
-        return null;
     }
 
     public DriverDetails getDriverById(int id) {
