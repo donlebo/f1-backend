@@ -50,7 +50,7 @@
             <artifactId>ojdbc11</artifactId>
             <version>21.6.0.0.1</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/ojdbc11.jar</systemPath>
+            <systemPath>${pom.basedir}/src/main/resources/ojdbc11.jar</systemPath>
         </dependency>
 
         <dependency> <!-- unirest -->
