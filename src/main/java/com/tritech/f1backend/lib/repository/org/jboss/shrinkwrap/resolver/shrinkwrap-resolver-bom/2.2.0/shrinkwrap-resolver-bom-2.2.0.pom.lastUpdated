@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon May 30 16:09:54 CEST 2022
+https\://repo.maven.apache.org/maven2/.lastUpdated=1653919794895
+http\://0.0.0.0/.error=Could not transfer artifact org.jboss.shrinkwrap.resolver\:shrinkwrap-resolver-bom\:pom\:2.2.0 from/to maven-default-http-blocker (http\://0.0.0.0/)\: Blocked mirror for repositories\: [spring-ext (http\://repo.spring.io/ext-release-local/, default, releases), spring-milestones (http\://repo.spring.io/milestone, default, releases), spring-snapshots (http\://repo.spring.io/snapshot, default, releases+snapshots)]
+@default-maven-default-http-blocker-http\://0.0.0.0/.lastUpdated=1653919794840

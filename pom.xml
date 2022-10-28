@@ -67,6 +67,15 @@
 
     </dependencies>
 
+
+    <repositories>
+        <repository>
+            <id>local</id>
+            <name>localRepo</name>
+            <url>${pom.basedir}</url>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>
