@@ -22,5 +22,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name:  Install JDBC Drivers
+      run: $ mvn install:install-file -Dfile=ojdbc11.jar -DgroupId=com.oracle -DartifactId=ojdbc11 -Dversion=21.6.0.0.1 -Dpackaging=jar
     - name: Build with Maven
       run: mvn -B package --file pom.xml
