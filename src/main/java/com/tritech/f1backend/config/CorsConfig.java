@@ -25,7 +25,7 @@ public class CorsConfig {
                         //definisco che accetteremo tutte le intestazioni
                         .allowedHeaders("*")
                         //definisco da quale origine voglio accettare le richieste
-                        .allowedOrigins("*");
+                        .allowedOrigins("http://localhost:4200");
             }
         };
     }
