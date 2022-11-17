@@ -14,7 +14,7 @@ public class F1Repository {
     private JdbcTemplate jdbcTemplate;
 
     public void signUpUser(User user) {
-            String query = "INSERT INTO F1_USER (username, name, email, password) values ('"
+            String query = "INSERT INTO USER (username, name, email, password, id) values ('"
                 + user.getUsername()
                 + "','"
                 + user.getName()
@@ -27,7 +27,7 @@ public class F1Repository {
     }
 
     public boolean login(String username, String password) {
-        String query = "SELECT count(*) result FROM F1_USER " +
+        String query = "SELECT count(*) result FROM USER " +
                 "where username = '" + username + "' and password = '" + password + "'";
         List<Integer> result = jdbcTemplate.query(query, (rs, rowNum) -> (
                  rs.getInt("result")
@@ -37,13 +37,13 @@ public class F1Repository {
     }
 
     public User getUserById(String username) {
-        String query = "SELECT * FROM F1_USER where username = " + username;
+        String query = "SELECT * FROM USER where username = " + username;
         jdbcTemplate.execute(query);
         return null;
     }
 
     public List<Driver> drivers() {
-        String query = "select name, surname, id, racecode from F1_DRIVER order by points desc";
+        String query = "select name, surname, id, racecode from DRIVER order by points desc";
         return
             jdbcTemplate.query(query, (rs, rowNum) -> new Driver(
                     rs.getInt("id"),
@@ -55,7 +55,7 @@ public class F1Repository {
     }
 
     public DriverDetails getDriverById(int id) {
-        String query = "select * from F1_DRIVER where id = " + id;
+        String query = "select * from DRIVER where id = " + id;
         return jdbcTemplate.queryForObject(query, ((rs, rowNum) -> new DriverDetails(
                 rs.getString("driverName"),
                 rs.getString("name"),
@@ -75,7 +75,7 @@ public class F1Repository {
     }
 
     public void updateStanding(DriverDetails driver) {
-        String script = "update F1_DRIVER set WINS = " + driver.getWins() +
+        String script = "update DRIVER set WINS = " + driver.getWins() +
                     ", POINTS = " + driver.getPoints() +
                     ", FINALPOSITION = " + driver.getFinalPosition() +
                     " where ID = " + driver.getId();
@@ -83,7 +83,7 @@ public class F1Repository {
     }
 
     public List<Constructor> getConstructor() {
-        String query = "SELECT DISTINCT CONSTRUCTOR, CONSTRUCTORNATIONALITY FROM F1_DRIVER ORDER BY CONSTRUCTORNATIONALITY ASC";
+        String query = "SELECT DISTINCT CONSTRUCTOR, CONSTRUCTORNATIONALITY FROM DRIVER ORDER BY CONSTRUCTORNATIONALITY ASC";
         return
             jdbcTemplate.query(query, (rs, rowNum) -> new Constructor(
                         rs.getString("constructor"),
@@ -93,7 +93,7 @@ public class F1Repository {
     }
 
     public List<Race> getRaces() {
-        String query = "SELECT RACENAME, ROUND from F1_RACE";
+        String query = "SELECT RACENAME, ROUND from RACE";
         return
             jdbcTemplate.query(query, (rs, rowNum) -> new Race(
                     rs.getString("racename"),
@@ -103,7 +103,7 @@ public class F1Repository {
     }
 
     public RaceDetails getRaceById(int round) {
-        String query = "select * from F1_RACE where round = " + round;
+        String query = "select * from RACE where round = " + round;
         return jdbcTemplate.queryForObject(query, ((rs, rowNum) -> new RaceDetails(
                 rs.getString("racename"),
                 rs.getDate("racedate"),
@@ -111,12 +111,12 @@ public class F1Repository {
                 rs.getString("circuitcountry"),
                 rs.getInt("racelaps"),
                 rs.getInt("fastestlaps"),
-                rs.getFloat("fasestlapsspeed"),
+                rs.getFloat("fastestlapsspeed"),
                 rs.getFloat("averagelapstime"),
                 rs.getInt("round"),
                 rs.getInt("season"),
                 rs.getString("status"),
-                rs.getString("learnMoreOnGranPrix"),
+                rs.getString("learnMoreGranPrix"),
                 rs.getString("learnMoreOnCircuit")
         )));
     }

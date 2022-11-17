@@ -54,6 +54,13 @@ public class Mock {
             //}
         //}
         //return null;
+    //<dependency> <!-- driver db -->
+      //      <groupId>com.oracle</groupId>
+        //    <artifactId>ojdbc11</artifactId>
+          //  <version>21.6.0.0.1</version>
+            //<scope>system</scope>
+    //<systemPath>${pom.basedir}/src/main/resources/ojdbc11.jar</systemPath>
+      //  </dependency>
     //}
 
     /* public static List<Driver> driver(){
